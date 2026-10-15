@@ -1,0 +1,118 @@
+@{
+    ViewData["Title"] = "Citizen Feedback";
+}
+
+<div class="page-container page-home">
+    <div class="content-wrapper">
+        <!-- Brand Header with Official Suvidha Logo -->
+        <header class="brand-header">
+            <div class="logo-wrapper">
+                <img src="~/images/suvidha-logo.png" alt="सुविधा Suvidha Logo" class="brand-logo-img" />
+            </div>
+
+            <!-- Facilities Visual Badges -->
+            <div class="facilities-strip">
+                <span class="facility-pill"><span class="dot"></span> 🚻 Clean Toilets</span>
+                <span class="facility-pill"><span class="dot"></span> 🚿 Bathing</span>
+                <span class="facility-pill"><span class="dot"></span> 🧺 Laundry</span>
+                <span class="facility-pill"><span class="dot"></span> 💧 Safe Water</span>
+            </div>
+        </header>
+
+        <!-- Main Form White Card -->
+        <div class="white-card">
+            <div class="card-step-badge">
+                <span class="step-label">Step 1 of 2: Details</span>
+                <span class="time-label">⏱️ Max 30s Video</span>
+            </div>
+
+            @if (TempData["Error"] != null)
+            {
+                <div class="status-card" style="background: #FEE2E2; color: #991B1B; border-color: #F87171; margin-bottom: 1rem;">
+                    @TempData["Error"]
+                </div>
+            }
+
+            <form asp-controller="Home" asp-action="Record" method="post" id="userInfoForm" novalidate>
+                <!-- Full Name Field -->
+                <div class="form-group">
+                    <label for="name" class="form-label">
+                        Full Name / पूर्ण नाव <span class="req">*</span>
+                    </label>
+                    <input type="text"
+                           id="name"
+                           name="name"
+                           class="form-control"
+                           placeholder="e.g. Ramesh Patil"
+                           required
+                           minlength="2"
+                           maxlength="80"
+                           autocomplete="name" />
+                    <span class="field-hint">Enter your name for the feedback record</span>
+                </div>
+
+                <!-- Phone Number Field -->
+                <div class="form-group">
+                    <label for="phoneNumber" class="form-label">
+                        Mobile Number / मोबाईल नंबर <span class="req">*</span>
+                    </label>
+                    <div class="phone-input-group">
+                        <span class="country-code-pill">+91</span>
+                        <input type="tel"
+                               id="phoneNumber"
+                               name="phoneNumber"
+                               class="form-control phone-control"
+                               placeholder="9876543210"
+                               pattern="[6-9][0-9]{9}"
+                               maxlength="10"
+                               required
+                               autocomplete="tel"
+                               inputmode="numeric" />
+                    </div>
+                    <span class="field-hint">10-digit mobile number</span>
+                </div>
+
+                <!-- Centre Location Selection -->
+                <div class="form-group">
+                    <label for="centreLocation" class="form-label">
+                        Suvidha Centre Location / केंद्र ठिकाण
+                    </label>
+                    <select id="centreLocation" name="centreLocation" class="form-select">
+                        <option value="Dharavi">Dharavi (धारावी)</option>
+                        <option value="Govandi">Govandi (गोवंडी)</option>
+                        <option value="Ghatkopar">Ghatkopar (घाटकोपर)</option>
+                        <option value="Mankhurd">Mankhurd (मानखुर्द)</option>
+                        <option value="Chembur">Chembur (चेंबूर)</option>
+                        <option value="Kurla">Kurla (कुर्ला)</option>
+                        <option value="Other">Other Mumbai Settlement / इतर</option>
+                    </select>
+                </div>
+
+                <!-- Facility Category Selection -->
+                <div class="form-group">
+                    <label for="facilityType" class="form-label">
+                        Feedback About / अभिप्राय कशाबद्दल आहे?
+                    </label>
+                    <select id="facilityType" name="facilityType" class="form-select">
+                        <option value="Public Toilets & Washrooms">Public Toilets &amp; Washrooms</option>
+                        <option value="Bathing & Shower Facilities">Bathing &amp; Shower Facilities</option>
+                        <option value="Laundry & Clothes Washing">Laundry &amp; Clothes Washing Services</option>
+                        <option value="Safe Drinking Water">Safe Drinking Water ATM</option>
+                        <option value="Overall Centre Cleanliness & Staff">Overall Centre Cleanliness &amp; Staff</option>
+                    </select>
+                </div>
+
+                <!-- Proceed Action Button -->
+                <button type="submit" class="btn btn-primary-blue btn-block" id="proceedBtn" style="margin-top: 1rem;">
+                    <span>Proceed to Video Feedback</span>
+                    <span>📹</span>
+                </button>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p><strong>Suvidha Centre</strong> &bull; Community Hygiene &amp; Sanitation</p>
+        </footer>
+    </div>
+</div>

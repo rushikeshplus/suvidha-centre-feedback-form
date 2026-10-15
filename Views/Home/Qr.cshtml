@@ -1,0 +1,44 @@
+@{
+    ViewData["Title"] = "Centre QR Code - सुविधा Suvidha";
+    var targetUrl = ViewBag.TargetUrl as string ?? "http://localhost:5000/";
+}
+
+<div class="page-container page-qr">
+    <div class="content-wrapper">
+        <header class="brand-header">
+            <div class="logo-wrapper">
+                <img src="~/images/suvidha-logo.png" alt="सुविधा Suvidha Logo" class="brand-logo-img" style="width: 170px;" />
+            </div>
+            <h1 class="brand-tagline">Citizen Video Feedback Kiosk</h1>
+            <p class="brand-subtext">Scan this QR code with any smartphone camera</p>
+        </header>
+
+        <div class="white-card" style="text-align: center; max-width: 440px; margin: 0 auto; padding: 1.5rem 1rem;">
+            <div class="qr-image-wrapper">
+                <img src="/qr-image?url=@Uri.EscapeDataString(targetUrl)" alt="Suvidha Centre QR Code" />
+            </div>
+
+            <div style="margin-top: 1rem;">
+                <p style="color: var(--suvidha-blue); font-weight: 700; font-size: 0.9rem; word-break: break-all;">@targetUrl</p>
+                <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.25rem;">
+                    Point your mobile phone camera at the QR code above
+                </p>
+            </div>
+
+            <div style="margin-top: 1.25rem; display: flex; gap: 0.5rem; justify-content: center;">
+                <a href="/" class="btn btn-primary-blue" style="text-decoration: none; padding: 0.65rem 1rem; flex: 1;">
+                    <span>Open Form</span>
+                    <span>📝</span>
+                </a>
+                <button type="button" onclick="window.print()" class="btn btn-outline-blue" style="padding: 0.65rem 1rem; flex: 1;">
+                    <span>Print QR</span>
+                    <span>🖨️</span>
+                </button>
+            </div>
+        </div>
+
+        <footer class="app-footer">
+            <p><strong>Suvidha Centre</strong> &bull; Community Hygiene &amp; Sanitation</p>
+        </footer>
+    </div>
+</div>

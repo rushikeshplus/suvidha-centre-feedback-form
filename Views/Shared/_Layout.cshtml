@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#0A65AF" />
+    <title>@(ViewData["Title"] != null ? $"{ViewData["Title"]} - सुविधा Suvidha Centre" : "सुविधा Suvidha Centre - HUL & BMC")</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    
+    <!-- Application Stylesheet -->
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    
+    <!-- Camera & Recording Script (deferred) -->
+    <script src="~/js/recorder.js" asp-append-version="true" defer></script>
+</head>
+<body class="app-body">
+    <!-- Main App Container -->
+    <main class="app-main" role="main">
+        @RenderBody()
+    </main>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

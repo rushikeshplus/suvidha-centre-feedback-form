@@ -1,0 +1,103 @@
+@{
+    ViewData["Title"] = "Record Video Feedback";
+    var userName = ViewBag.Name as string ?? "Citizen";
+    var userPhone = ViewBag.PhoneNumber as string ?? "";
+    var centreLocation = ViewBag.CentreLocation as string ?? "Mumbai";
+    var facilityType = ViewBag.FacilityType as string ?? "General";
+}
+
+<div class="page-container page-record">
+    <div class="content-wrapper" 
+         id="recordingContainer" 
+         data-name="@userName" 
+         data-phone="@userPhone"
+         data-location="@centreLocation"
+         data-facility="@facilityType">
+
+        <!-- Header with Suvidha Branding -->
+        <header class="brand-header" style="margin-bottom: 0.65rem;">
+            <div class="logo-wrapper">
+                <img src="~/images/suvidha-logo.png" alt="सुविधा Suvidha Logo" class="brand-logo-img" style="width: 140px;" />
+            </div>
+            <h1 class="brand-tagline" style="font-size: 1rem; margin-top: 0.15rem;">@centreLocation &bull; Feedback</h1>
+            <p class="brand-subtext" style="font-size: 0.8rem;">
+                Namaste, <strong>@userName</strong>!
+                <span class="facility-pill" style="display: inline-flex; vertical-align: middle; margin-left: 0.25rem; font-size: 0.7rem; padding: 0.15rem 0.45rem;">
+                    @facilityType
+                </span>
+            </p>
+        </header>
+
+        <!-- Video Card -->
+        <div class="white-card">
+            <div class="card-step-badge" style="margin-bottom: 0.75rem; padding-bottom: 0.5rem;">
+                <span class="step-label">Step 2: Record</span>
+                <span class="time-label">⏱️ Max: 30s</span>
+            </div>
+
+            <!-- Viewport Stage -->
+            <div class="video-wrapper">
+                <video id="videoPreview" autoplay playsinline muted class="video-element"></video>
+
+                <!-- Recording LIVE badge -->
+                <div class="rec-indicator" id="recBadge">
+                    <span class="rec-dot"></span>
+                    <span>REC</span>
+                </div>
+
+                <!-- Timer Badge (Countdown) -->
+                <div class="timer-pill-badge" id="timerBadge">
+                    <span>⏱️</span>
+                    <span id="timerText">30</span>s
+                </div>
+
+                <!-- Guidance Overlay -->
+                <div class="video-guidance-overlay" id="guidanceOverlay">
+                    Tap Start &bull; You can stop anytime (Max 30s)
+                </div>
+            </div>
+
+            <!-- Status Box -->
+            <div class="status-card" id="statusCard" style="margin-bottom: 0.65rem; padding: 0.45rem 0.65rem;">
+                <p id="statusText">Requesting camera access...</p>
+            </div>
+
+            <!-- Controls Grid -->
+            <div class="recording-controls-grid">
+                <!-- 1. Start Button -->
+                <button type="button" class="btn btn-primary-blue btn-block" id="startBtn" disabled>
+                    <span style="font-size: 1.1rem;">⏺️</span>
+                    <span>Start Recording (Max 30s)</span>
+                </button>
+
+                <!-- 2. Stop Button (VISIBLE ONLY WHILE RECORDING) -->
+                <button type="button" class="btn btn-stop btn-block" id="stopBtn" style="display: none;">
+                    <span class="stop-square-icon"></span>
+                    <span>Stop Recording Now</span>
+                </button>
+
+                <!-- 3. Review & Submit Row (VISIBLE AFTER RECORDING STOPS) -->
+                <div id="postRecordControls" style="display: none; width: 100%;">
+                    <button type="button" class="btn btn-success btn-block" id="submitBtn" style="margin-bottom: 0.5rem;">
+                        <span>Submit Feedback</span>
+                        <span>🚀</span>
+                    </button>
+                    <button type="button" class="btn btn-outline-blue btn-block" id="retakeBtn">
+                        <span>🔄 Record Again / Retake</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Upload Progress Notice -->
+            <div class="upload-status-box" id="uploadStatusBox">
+                <span class="spinner"></span>
+                <span style="font-weight: 600; color: var(--suvidha-blue-dark);">Uploading your feedback video...</span>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="app-footer" style="margin-top: 1rem;">
+            <a asp-action="Index">← Change Details / Re-enter</a>
+        </footer>
+    </div>
+</div>

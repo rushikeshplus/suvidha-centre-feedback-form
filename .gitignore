@@ -1,0 +1,23 @@
+## Build and Environment
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+.vs/
+.vscode/
+.idea/
+
+## SQLite & Temporary DB
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+## User Uploaded Videos (preserve directory via .gitkeep)
+wwwroot/uploads/*
+!wwwroot/uploads/.gitkeep
+
+## OS files
+.DS_Store
+Thumbs.db

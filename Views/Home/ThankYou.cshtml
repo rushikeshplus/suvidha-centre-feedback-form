@@ -1,0 +1,57 @@
+@{
+    ViewData["Title"] = "Thank You / धन्यवाद";
+}
+
+<div class="page-container page-thank-you">
+    <div class="content-wrapper">
+        <!-- Logo Header -->
+        <header class="brand-header" style="margin-bottom: 1.25rem;">
+            <div class="logo-wrapper">
+                <img src="~/images/suvidha-logo.png" alt="सुविधा Suvidha Logo" class="brand-logo-img" style="max-width: 200px;" />
+            </div>
+            <p class="brand-subtext">Hindustan Unilever (HUL) &amp; BMC Suvidha Centre</p>
+        </header>
+
+        <!-- White Success Card -->
+        <div class="white-card" style="text-align: center;">
+            <!-- Suvidha Blue Checkmark Box -->
+            <div class="success-checkmark-box">
+                <span>✓</span>
+            </div>
+
+            <h1 class="brand-tagline" style="font-size: 1.5rem; color: var(--suvidha-blue);">
+                धन्यवाद! Thank You!
+            </h1>
+            
+            <p style="font-weight: 600; color: var(--text-primary); margin: 0.5rem 0 0.25rem;">
+                Your video feedback has been recorded and submitted successfully.
+            </p>
+            
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1.5rem;">
+                Your feedback directly helps HUL and BMC maintain clean, safe, and dignified hygiene facilities across Mumbai settlements.
+            </p>
+
+            <!-- Status Box -->
+            <div class="status-card" style="text-align: left; margin-bottom: 1.5rem;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.35rem;">
+                    <span style="color: var(--text-muted); font-size: 0.8rem;">Status:</span>
+                    <span style="color: var(--color-success); font-weight: 700; font-size: 0.8rem;">● Received &amp; Stored Securely</span>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                    <span style="color: var(--text-muted); font-size: 0.8rem;">Initiative:</span>
+                    <span style="color: var(--suvidha-blue); font-weight: 600; font-size: 0.8rem;">Suvidha Citizen Engagement</span>
+                </div>
+            </div>
+
+            <!-- Action Button -->
+            <a asp-action="Index" class="btn btn-primary-blue btn-block">
+                <span>🔄 Record Another Feedback</span>
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p><strong>Suvidha Centre</strong> &bull; HUL &amp; BMC Community Hygiene Partnership</p>
+        </footer>
+    </div>
+</div>
