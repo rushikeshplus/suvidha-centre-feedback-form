@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const userName = container.dataset.name || '';
     const userPhone = container.dataset.phone || '';
     const centreLocation = container.dataset.location || '';
-    const facilityType = container.dataset.facility || '';
 
     let mediaRecorder = null;
     let recordedChunks = [];
@@ -226,7 +225,6 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('name', userName);
         formData.append('phoneNumber', userPhone);
         formData.append('centreLocation', centreLocation);
-        formData.append('facilityType', facilityType);
 
         try {
             const response = await fetch('/Home/UploadVideo', {

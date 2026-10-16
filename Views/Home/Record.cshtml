@@ -3,7 +3,6 @@
     var userName = ViewBag.Name as string ?? "Citizen";
     var userPhone = ViewBag.PhoneNumber as string ?? "";
     var centreLocation = ViewBag.CentreLocation as string ?? "Mumbai";
-    var facilityType = ViewBag.FacilityType as string ?? "General";
 }
 
 <div class="page-container page-record">
@@ -11,8 +10,7 @@
          id="recordingContainer" 
          data-name="@userName" 
          data-phone="@userPhone"
-         data-location="@centreLocation"
-         data-facility="@facilityType">
+         data-location="@centreLocation">
 
         <!-- Header with Suvidha Branding -->
         <header class="brand-header" style="margin-bottom: 0.65rem;">
@@ -22,9 +20,6 @@
             <h1 class="brand-tagline" style="font-size: 1rem; margin-top: 0.15rem;">@centreLocation &bull; Feedback</h1>
             <p class="brand-subtext" style="font-size: 0.8rem;">
                 Namaste, <strong>@userName</strong>!
-                <span class="facility-pill" style="display: inline-flex; vertical-align: middle; margin-left: 0.25rem; font-size: 0.7rem; padding: 0.15rem 0.45rem;">
-                    @facilityType
-                </span>
             </p>
         </header>
 
